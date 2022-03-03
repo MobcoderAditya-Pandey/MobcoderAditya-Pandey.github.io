@@ -126,8 +126,5 @@
 
     <button style="margin-top: 2%;background-color: greenyellow;" type="button" onclick="deleteData()">Delete Data</button>
     <h1 id="delete"></h1>
-    
-
-   
   </body>
 </html>
