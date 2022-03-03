@@ -33,6 +33,7 @@
           type : "GET",
       dataType: jsonp,
       cors: true,
+      contentType:'application/json',
       secure: true,
                   headers: { 'Access-Control-Allow-Origin': '*',
       },
