@@ -32,7 +32,6 @@
           url: "http://dummy.restapiexample.com/api/v1/employees",
           type : "GET",
       cors: true,
-      contentType:application/json,
       secure: true,
                   headers: { 'Access-Control-Allow-Origin': '*',
       },
