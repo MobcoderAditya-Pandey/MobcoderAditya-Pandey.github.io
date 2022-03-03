@@ -31,7 +31,6 @@
       $.ajax({
           url: "http://dummy.restapiexample.com/api/v1/employees",
           type : "GET",
-       dataType:json,
       cors: true,
       contentType:application/json,
       secure: true,
