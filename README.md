@@ -1,37 +1,60 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AJAX-API Assignment</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        #table1{
+            background-color: thistle;
+            border-radius: 10px;
+            border: 1px solid black;
+            text-align: center;
+            margin: 5%;
+            padding: 20px;
+        }
+        td{
+            border-right: 1px solid black;
+        }
+    </style>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      Getting data from an API using AJAX and displaying it in the form of Table
+    </h1>
+    <table id="table1" class="table table-success"></table>
+    <button style="margin-top: 2%;background-color: greenyellow;" type="button" onclick="myFunction()" >Click Me</button>
 
-You can use the [editor on GitHub](https://github.com/MobcoderAditya-Pandey/MobcoderAditya-Pandey.github.io/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+    <script>
+        function myFunction(){
+      $.ajax({
+          url: "http://dummy.restapiexample.com/api/v1/employees",
+          type : "GET",
+            success : function(data){
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+                console.log(data);
+                var tab = "<tr><th>id</th><th>Employee Name</th><th>Employee Salary</th><th>Employee Age</th><th>Profile Image</th></tr>";
+                for( x=0;x<data.data.length;x++){
+                    // console.log(data.data[x].id);
+                    // console.log(data.data[x].employee_name);
+                    // console.log(data.data[x].employee_salary);
+                    // console.log(data.data[x].employee_age);
+                    // console.log(data.data[x].profile_image);
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MobcoderAditya-Pandey/MobcoderAditya-Pandey.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+                    tab += '<tr>';
+                        tab += '<td>'+ data.data[x].id + '</td>';
+                        tab += '<td>' + data.data[x].employee_name + '</td>';
+                        tab += '<td>' + data.data[x].employee_salary + '</td>';
+                        tab += '<td>' + data.data[x].employee_age + '</td>';
+                        tab += '<td>' + data.data[x].profile_image + '</td>';
+                        tab += '</tr>';
+                }
+                $("#table1").append(tab);
+          }
+      });
+        }
+    </script>
+  </body>
+</html>
