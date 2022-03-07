@@ -17,10 +17,65 @@
         background-color: green;
         color: white;
     }
+    .dark{
+            background-color: #222;
+            color: #e6e6e6;
+        }
+        .btn{
+            margin: 5%;
+        }
+        #animated_div{
+            margin-top: 5%;
+            width: 200px;
+            height: 47px;
+            background-color: aqua;
+            position: relative;
+            animation-name: animated_div;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        @keyframes animated_div{
+            0%{
+                transform: rotate(0deg);
+                left: 0px;
+            }
+            25%{
+                transform: rotate(20deg);
+                left: 0px;
+            }
+            50%{
+                transform : rotate(0deg);
+                left : 500px;
+            }
+            55%{
+                transform: rotate(0deg);
+                left: 500px;
+            }
+            70%{
+                transform: rotate(0deg);
+                left: 500px;
+                background-color: #1ec71e;
+            }
+            100%{
+                transform: rotate(-360deg);
+                left: 0px;
+            }
+
+        }
 </style>
 <script src="https://code.jquery.com/jquery-3.5.1.js">
     </script>   
-    
+    <script>
+        function darkMode(){
+         var ele = document.body;
+         ele.classList.toggle("dark");
+         document.getElementById('dMode').innerHTML = "Light Mode";
+        }
+    </script>
 
     <script>
     function myFunction(){
@@ -65,5 +120,7 @@
 </table>
 <input type="button"  class="btn btn-success" value="Click me" onclick="myFunction()">
 <hr>
+    <div id="animated_div">Aditya Pandey</div>
+    <button type="button" id="dMode" onclick="darkMode()" class="btn btn-warning"><i class="fa-solid fa-eye"></i>&nbsp;Switch Mode</button>
 </body>
 </html>
